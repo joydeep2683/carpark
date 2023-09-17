@@ -1,0 +1,37 @@
+version: '3.2'
+
+services:
+  app:
+    build: .
+    container_name: car-park-app
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - car-park-app-network
+    depends_on:
+      - db
+    env_file:
+      - .env
+    entrypoint: "python"
+    command: ["manage.py", "runserver", "0.0.0.0:8000"]
+  
+
+  db:
+    image: postgres:15.4-alpine
+    container_name: car-park-db
+    volumes:
+      - ../db-data/car-park-db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=car-park-app-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"
+    networks:
+      - car-park-app-network
+
+networks:
+  car-park-app-network:
+    driver: bridge

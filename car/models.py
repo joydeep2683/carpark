@@ -1,6 +1,5 @@
 import uuid
 from django.db import models
-from user.models import Users
 
 class Car(models.Model):
     id = models.UUIDField(
