@@ -12,10 +12,11 @@ class Car(models.Model):
         on_delete=models.CASCADE
     )
     car_number = models.CharField(max_length=50, default=None)
-    start_lat = models.FloatField()
-    start_lon = models.FloatField()
-    finish_lat = models.FloatField()
-    finish_lon = models.FloatField()
+    chasis_id = models.CharField(max_length=100, default=None)
+    engine_id = models.CharField(max_length=100, default=None)
 
     class Meta:
         db_table = 'car_car'
+
+    def __str__(self) -> str:
+        return super().__str__()

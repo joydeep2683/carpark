@@ -5,6 +5,8 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /code/
 
+RUN apk update && apk add git
+
 COPY requirements.txt /code/
 
 RUN pip install --upgrade pip

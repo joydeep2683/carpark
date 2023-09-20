@@ -12,8 +12,39 @@ Here we are going to build/discuss a solution which will give the facility to in
 
 Here we are going to build the backend which will give the facility to connect to car owner by any person, who is facing the problem. 
 
-We are going to publish few API's which will get consumed by UI
-    1. To register the car in the app
-    2. To connect to the car owner
-    3. 
+Now lets jump on to the product that we are going to build. As of now we only have idea of v1 and v2.
+
+![User Diagram](https://i.imgur.com/PlRrUuG.png)
+
+##
+
+#### v1
+***owner***
+
+1. Register their vehicle using the mobile number(Assuming the same mobile number is the driver of that vehicle).
+2. Considering one owner could be having more than 1 car. For each car there will be one QR code.
+
+***scanner***
+
+1. If a scanner(person who scan it) scan the QR code, then he/she will get connected to the car owner.
+
+#### v2:
+
+Location and DND, these will be implemented here.
+
+
+##
+**We are going to publish few API's which will get consumed by UI**
+
+    1. To register the User
+    2. To register the car in the app
+    3. To generate QR code
+    4. To connect to the car owner
+
+
+We need to make the codebase of this product more readable, reliable and maintainable so that, whoever touches the codebase and read about a function, it should not take more than 3 minutes.
+
+We are using TDD - First we will write the tests for a functionality or feature and then we will write the code.
+
+
 

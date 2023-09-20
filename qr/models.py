@@ -8,8 +8,8 @@ class QRDetail(models.Model):
         db_index=True, 
         default=uuid.uuid4
     )
-    user_id = models.ForeignKey(
-        'user.Users',
+    car_id = models.ForeignKey(
+        'car.Car',
         on_delete=models.CASCADE
     )
     qr_link = models.CharField(max_length=255)
@@ -19,11 +19,4 @@ class QRDetail(models.Model):
     class Meta:
         db_table = 'qr_qr_detail'
 
-class QRDelivery(models.Model):
-    delivery_pincode = models.CharField(max_length=100)
-    deliver_address_1 = models.CharField(max_length=255)
-    deliver_address_2 = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = 'qr_qr_delivery'
 
